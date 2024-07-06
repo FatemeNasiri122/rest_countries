@@ -25,7 +25,7 @@ const Country = () => {
     }
 
     return (
-        <div className="py-10 px-4">
+        <div className="pt-14 pb-10 px-4 md:px-14.5">
             <div className="flex">
                 <Button href="/" leftIcon={<ArrowLeft />} >back</Button>
             </div>

@@ -9,12 +9,12 @@ import LoadingCircle from "../components/ui/icons/LoadingCircle";
 const apiUrl = "https://restcountries.com/v3.1";
 
 const Home = () => {
-    const [countryInfo, setCpuntryInfo] = useState("all")
+    const [countryInfo, setCpuntryInfo] = useState("all");
     const { data, error, loading } = useFetchGet(`${apiUrl}/${countryInfo}?fields=name,flags,population,region,capital,cca3`);
     const [search, setSearch] = useState("");
 
     return (
-        <div className='py-10 px-4'>
+        <div className='pt-12 pb-10 px-4 md:px-14.5 '>
             <div className="flex flex-col lg:flex-row justify-between">
                 <div className="w-full lg:w-[450px]">
                     <Input
@@ -59,4 +59,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;

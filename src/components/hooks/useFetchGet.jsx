@@ -7,10 +7,10 @@ const useFetchGet = (url) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const getAPIData = async () => {
+    const getAPIData = async (signal) => {
         setLoading(true);
         try {
-            const apiResponse = await fetch(url);
+            const apiResponse = await fetch(url, signal);
             const json = await apiResponse.json();
             setStatus(apiResponse.status);
             setStatusText(apiResponse.statusText);
@@ -22,7 +22,14 @@ const useFetchGet = (url) => {
     };
 
     useEffect(() => {
-        getAPIData();
+        const controller = new AbortController();
+        const signal = controller.signal;
+
+        getAPIData(signal);
+
+        return () => {
+            controller.abort();
+        };
     }, [url]);
 
     return { status, statusText, data, error, loading };

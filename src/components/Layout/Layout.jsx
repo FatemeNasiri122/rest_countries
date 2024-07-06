@@ -7,13 +7,13 @@ const Layout = () => {
     return (
         <>
             <Navbar />
-            <main className="max-w-[1440px] m-auto">
-                <React.Suspense fallback={<div className="w-full h-screen flex justify-center items-center text-black dark:text-white-color">
-                    <LoadingCircle />
-                </div>}>
+            <React.Suspense fallback={<div className="w-full h-screen flex justify-center items-center text-black dark:text-white-color">
+                <LoadingCircle />
+            </div>}>
+                <main className="max-w-[1440px] pt-10 m-auto">
                     <Outlet />
-                </React.Suspense>
-            </main>
+                </main>
+            </React.Suspense>
         </>
     )
 }

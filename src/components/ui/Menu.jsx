@@ -13,6 +13,7 @@ const Menu = ({ title, items, }) => {
         <div className="relative">
             <Button
                 type="button"
+                customStyle={"w-32"}
                 onClick={() => setOpen(prev => !prev)}>
                 {title}
             </Button>

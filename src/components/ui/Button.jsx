@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 
-const Button = ({ children, isDisable, type, href, leftIcon, rightIcon, onClick }) => {
+const Button = ({ children, isDisable, type, href, leftIcon, rightIcon, customStyle, onClick }) => {
     return (
         <>
             {href ?
                 <Link to={href}
-                    className={`border-none outline-none bg-transparent cursor-pointer bg-white-color dark:bg-dark-color text-black dark:text-white-color flex items-center px-4 py-3 rounded-md shadow-cart dark:shadow-dark-cart`}
+                    className={`border-none outline-none bg-transparent cursor-pointer bg-white-color dark:bg-dark-color text-black dark:text-white-color flex items-center px-4 py-3 rounded-md shadow-cart dark:shadow-dark-cart ${customStyle}`}
                 >
                     <span className='mr-2'>{leftIcon}</span>
                     {children}
@@ -13,7 +13,7 @@ const Button = ({ children, isDisable, type, href, leftIcon, rightIcon, onClick 
                 </Link>
                 :
                 <button
-                    className={`border-none outline-none bg-transparent cursor-pointer bg-white-color dark:bg-dark-color text-black dark:text-white-color flex items-center px-4 py-3 rounded-md shadow-cart dark:shadow-dark-cart ${isDisable && "text-gray"}`}
+                    className={`border-none outline-none bg-transparent cursor-pointer bg-white-color dark:bg-dark-color text-black dark:text-white-color flex items-center px-4 py-3 rounded-md shadow-cart dark:shadow-dark-cart ${customStyle} ${isDisable && "text-gray"}`}
                     onClick={onClick}
                     type={type}
                     disabled={isDisable}
